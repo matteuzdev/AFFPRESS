@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { Rocket, Zap, Target, BarChart3, ShieldCheck, ArrowRight, MousePointer2, CheckCircle2 } from 'lucide-react'
 
