@@ -133,7 +133,7 @@ export default function CloneHero() {
                         </div>
                     )}
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-1">
                             <label className="text-[10px] font-bold text-gray-400 uppercase ml-1 flex items-center gap-1">
                                 <Zap className="w-3 h-3 text-yellow-500" />
@@ -144,7 +144,7 @@ export default function CloneHero() {
                                 value={affiliateLink}
                                 onChange={(e) => setAffiliateLink(e.target.value)}
                                 placeholder="https://kiwify.com.br/..."
-                                className="w-full bg-[#050510] border border-indigo-500/30 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:border-indigo-500 outline-none text-sm transition-all"
+                                className="w-full bg-[#050510] border border-indigo-500/30 rounded-xl px-4 py-4 text-white placeholder-gray-600 focus:border-indigo-500 outline-none text-sm transition-all"
                             />
                         </div>
                         <div className="space-y-1">
@@ -154,23 +154,22 @@ export default function CloneHero() {
                             <select
                                 value={presellType}
                                 onChange={(e) => setPresellType(e.target.value as any)}
-                                className="w-full bg-[#050510] border border-gray-700/50 rounded-xl px-4 py-3 text-white focus:border-indigo-500 outline-none text-sm transition-all appearance-none cursor-pointer"
+                                className="w-full bg-[#050510] border border-gray-700/50 rounded-xl px-4 py-4 text-white focus:border-indigo-500 outline-none text-sm transition-all appearance-none cursor-pointer"
                             >
                                 <option value="direct">🚫 Sem Presell (Clonagem Direta)</option>
                                 <option value="quiz">📝 Quiz Interativo (Alta Conversão)</option>
-                                <option value="cookie">🍪 Consentimento de Cookies (Blur/Redirect)</option>
+                                <option value="cookie">🍪 Cookie Consent (Blur/Redirect)</option>
                                 <option value="advertorial">📰 Advertorial (Scientific/News)</option>
-                                <option value="listicle">🔟 Listicle (10 Razões/Solução)</option>
                             </select>
                         </div>
-                        <div className="space-y-1">
+                        <div className="space-y-1 sm:col-span-2 md:col-span-1">
                             <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">
                                 GEO (País do Tráfego)
                             </label>
                             <select
                                 value={geo}
                                 onChange={(e) => setGeo(e.target.value)}
-                                className="w-full bg-[#050510] border border-gray-700/50 rounded-xl px-4 py-3 text-white focus:border-indigo-500 outline-none text-sm transition-all appearance-none cursor-pointer"
+                                className="w-full bg-[#050510] border border-gray-700/50 rounded-xl px-4 py-4 text-white focus:border-indigo-500 outline-none text-sm transition-all appearance-none cursor-pointer"
                             >
                                 <option value="US">🇺🇸 Estados Unidos (Recomendado)</option>
                                 <option value="BR">🇧🇷 Brasil</option>

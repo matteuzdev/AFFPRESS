@@ -5,6 +5,8 @@ import { LayoutDashboard, Plus, Settings, LogOut, Code2, Rocket, Menu } from 'lu
 import { signout } from '@/app/auth/actions'
 import { createClient } from '@/lib/supabase/server'
 
+import MobileNav from '@/components/dashboard/mobile-nav'
+
 export default async function DashboardLayout({ children }: PropsWithChildren) {
     const supabase = await createClient()
     const { data: { user } } = await supabase.auth.getUser()
@@ -17,14 +19,14 @@ export default async function DashboardLayout({ children }: PropsWithChildren) {
                 <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[120px] mix-blend-screen"></div>
             </div>
 
-            {/* Sidebar */}
+            {/* Sidebar (Desktop Only) */}
             <aside className="w-72 border-r border-[#1E1E2E] bg-[#0F0F1B]/80 backdrop-blur-xl hidden md:flex flex-col relative z-20">
                 <div className="h-20 flex items-center px-8 border-b border-[#1E1E2E]">
                     <span className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent tracking-tighter">
                         AFFPRESS
                     </span>
                     <span className="ml-2 text-[10px] uppercase font-bold text-gray-500 border border-gray-700 rounded px-1.5 py-0.5">
-                        v2.0
+                        v2.1
                     </span>
                 </div>
 
@@ -85,13 +87,7 @@ export default async function DashboardLayout({ children }: PropsWithChildren) {
 
             {/* Main Content */}
             <main className="flex-1 flex flex-col min-w-0 overflow-hidden relative z-10">
-                {/* Mobile Header */}
-                <div className="md:hidden h-16 bg-[#0F0F1B]/90 backdrop-blur border-b border-[#1E1E2E] flex items-center justify-between px-4 sticky top-0 z-50">
-                    <span className="text-lg font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">AFFPRESS</span>
-                    <button className="p-2 text-gray-400">
-                        <Menu className="w-6 h-6" />
-                    </button>
-                </div>
+                <MobileNav />
 
                 <div className="flex-1 overflow-auto p-4 md:p-10 scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-transparent">
                     <div className="mx-auto max-w-7xl animate-in fade-in slide-in-from-bottom-4 duration-700">
