@@ -53,10 +53,10 @@ export async function POST(request: NextRequest) {
         // --- TRADUÇÕES E LOCALIZAÇÃO ---
         const translations: any = {
             BR: {
-                cookieTitle: 'Valorizamos sua privacidade',
-                cookieText: 'Usamos cookies para melhorar sua experiência e analisar nosso tráfego. Ao clicar em "Aceitar Tudo", você concorda com o uso de cookies.',
-                cookieAccept: 'Aceitar Tudo',
-                cookieReject: 'Recusar',
+                cookieTitle: 'Uso de Cookies',
+                cookieText: 'Este site usa cookies para personalizar conteúdos e anúncios, fornecer recursos de mídia social e analisar nosso tráfego. Ao clicar em Aceitar, você concorda com o uso de cookies. Para mais informações, acesse nossa <a href="#" style="color: #007bff; text-decoration: underline;">Política de Cookies</a>.',
+                cookieAccept: 'Aceitar',
+                cookieClose: 'Fechar',
                 quizTitle: 'Avaliação Rápida de Saúde',
                 quizText: 'Responda 3 perguntas rápidas para ver se esta solução é ideal para você.',
                 quizQ1: '1. Você tem mais de 30 anos?',
@@ -69,10 +69,10 @@ export async function POST(request: NextRequest) {
                 advSponsored: 'Conteúdo Patrocinado'
             },
             US: {
-                cookieTitle: 'We value your privacy',
-                cookieText: 'We use cookies to enhance your browsing experience and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.',
-                cookieAccept: 'Accept All',
-                cookieReject: 'Reject All',
+                cookieTitle: 'Cookie Policy',
+                cookieText: 'This site uses cookies to personalize content and ads, provide social media features, and analyze our traffic. By clicking Accept, you agree to the use of cookies. For more information, please visit our <a href="#" style="color: #007bff; text-decoration: underline;">Cookie Policy</a>.',
+                cookieAccept: 'Accept',
+                cookieClose: 'Close',
                 quizTitle: 'Quick Health Assessment',
                 quizText: 'Answer 3 quick questions to see if this solution is right for you.',
                 quizQ1: '1. Are you over 30 years old?',
@@ -125,22 +125,17 @@ export async function POST(request: NextRequest) {
                     </div>
                 `)
             } else if (presellType === 'cookie') {
-                // Injetar o modelo de Cookie Consent com Blur localizaddo
+                // Injetar o modelo de Cookie Consent com design "SynaDentix" Style
                 $('body').prepend(`
-                    <div id="affpress-cookie-overlay" onclick="window.location.href='${affiliateLink || '#'}'" style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 999999; display: flex; align-items: center; justify-content: center; font-family: sans-serif; cursor: pointer;">
-                        <div onclick="event.stopPropagation()" style="max-width: 400px; background: white; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2); color: #333; cursor: default;">
-                            <div style="font-size: 40px; margin-bottom: 15px;">🍪</div>
-                            <h3 style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">${t.cookieTitle}</h3>
-                            <p style="font-size: 14px; color: #666; margin-bottom: 25px; line-height: 1.5;">${t.cookieText}</p>
-                            <div style="display: flex; gap: 10px;">
-                                <button onclick="window.location.href='${affiliateLink || '#'}'" style="flex: 1; background: #4f46e5; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s;">${t.cookieAccept}</button>
-                                <button onclick="window.location.href='${affiliateLink || '#'}'" style="flex: 1; background: #f3f4f6; color: #4b5563; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s;">${t.cookieReject}</button>
+                    <div id="affpress-cookie-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 999999; display: flex; align-items: center; justify-content: center; font-family: sans-serif; cursor: pointer;" onclick="window.location.href='${affiliateLink || '#'}'">
+                        <div onclick="event.stopPropagation()" style="max-width: 450px; background: white; padding: 40px; border-radius: 8px; text-align: center; box-shadow: 0 10px 50px rgba(0,0,0,0.3); color: #000; cursor: default; margin: 20px;">
+                            <p style="font-size: 18px; color: #000; margin-bottom: 25px; line-height: 1.4; font-weight: 500;">${t.cookieText}</p>
+                            <div style="display: flex; gap: 15px; justify-content: center;">
+                                <button onclick="window.location.href='${affiliateLink || '#'}'" style="background: #007bff; color: white; border: none; padding: 12px 35px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px;">${t.cookieAccept}</button>
+                                <button onclick="window.location.href='${affiliateLink || '#'}'" style="background: #007bff; color: white; border: none; padding: 12px 35px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px;">${t.cookieClose}</button>
                             </div>
                         </div>
                     </div>
-                    <style>
-                        body { overflow: hidden !important; }
-                    </style>
                 `)
             }
             html = $.html()
