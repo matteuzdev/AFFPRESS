@@ -113,14 +113,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                             className="flex items-center justify-center gap-2 text-center bg-indigo-600 hover:bg-indigo-500 text-xs font-bold text-white py-3 rounded-xl transition-all active:scale-95 shadow-lg shadow-indigo-500/20"
                         >
                             <Edit3 className="w-3.5 h-3.5" />
-                            Editar
+                            Gerenciar
                         </Link>
                         <Link
                             href={`/projects/${project.id}`}
                             className="flex items-center justify-center gap-2 text-center bg-[#1E1E2E] hover:bg-[#2A2A3E] text-xs font-bold text-gray-300 py-3 rounded-xl transition-all border border-gray-700 active:scale-95 shadow-lg"
                         >
                             <ExternalLink className="w-3.5 h-3.5" />
-                            Páginas
+                            Ver Páginas
                         </Link>
                     </div>
                     <Link

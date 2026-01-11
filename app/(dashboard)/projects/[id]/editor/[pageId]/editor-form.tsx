@@ -55,7 +55,7 @@ export default function EditorForm({ page, projectId }: { page: any, projectId: 
     }
 
     return (
-        <div className="flex flex-col w-full h-full">
+        <div className="flex flex-col flex-1 h-full">
             <div className="bg-[#0F0F1B] border-b border-gray-800 px-4 py-2 flex items-center justify-between gap-4">
                 <div className="flex bg-gray-900 rounded-lg p-1 border border-gray-800">
                     <button

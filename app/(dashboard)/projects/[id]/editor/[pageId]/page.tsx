@@ -37,12 +37,19 @@ export default async function EditorPage({ params }: { params: Promise<{ id: str
                 </div>
 
                 <div className="flex items-center gap-3">
+                    <button
+                        onClick={() => window.open(`/api/export-page?pageId=${pageId}`, '_blank')}
+                        className="flex items-center gap-2 px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 text-xs font-bold rounded-lg border border-gray-700 transition-all"
+                    >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                        Ver Tela Cheia
+                    </button>
                     <ExportActions pageId={pageId} />
                 </div>
             </header>
 
             {/* Editor Area */}
-            <main className="flex-1 flex overflow-hidden">
+            <main className="flex-1 flex overflow-hidden relative">
                 <EditorForm page={page} projectId={id} />
                 {/* Right Sidebar: Unified Management */}
                 <EditorSidebar page={page} projectId={id} />
