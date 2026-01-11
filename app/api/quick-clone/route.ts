@@ -126,13 +126,14 @@ export async function POST(request: NextRequest) {
                 `)
             } else if (presellType === 'cookie') {
                 // Injetar o modelo de Cookie Consent com design "SynaDentix" Style
+                // Qualquer clique no overlay ou no modal redireciona para o affiliateLink
                 $('body').prepend(`
-                    <div id="affpress-cookie-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 999999; display: flex; align-items: center; justify-content: center; font-family: sans-serif; cursor: pointer;" onclick="window.location.href='${affiliateLink || '#'}'">
-                        <div onclick="event.stopPropagation()" style="max-width: 450px; background: white; padding: 40px; border-radius: 8px; text-align: center; box-shadow: 0 10px 50px rgba(0,0,0,0.3); color: #000; cursor: default; margin: 20px;">
-                            <p style="font-size: 18px; color: #000; margin-bottom: 25px; line-height: 1.4; font-weight: 500;">${t.cookieText}</p>
+                    <div id="affpress-cookie-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 999999; display: flex; align-items: center; justify-content: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; cursor: pointer;" onclick="window.location.href='${affiliateLink || '#'}'">
+                        <div style="max-width: 480px; background: white; padding: 35px 45px; border-radius: 12px; text-align: center; box-shadow: 0 15px 60px rgba(0,0,0,0.4); color: #000; margin: 20px;">
+                            <p style="font-size: 19px; color: #111; margin-bottom: 25px; line-height: 1.45; font-weight: 500;">${t.cookieText}</p>
                             <div style="display: flex; gap: 15px; justify-content: center;">
-                                <button onclick="window.location.href='${affiliateLink || '#'}'" style="background: #007bff; color: white; border: none; padding: 12px 35px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px;">${t.cookieAccept}</button>
-                                <button onclick="window.location.href='${affiliateLink || '#'}'" style="background: #007bff; color: white; border: none; padding: 12px 35px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px;">${t.cookieClose}</button>
+                                <button style="background: #007bff; color: white; border: none; padding: 12px 35px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 17px; transition: opacity 0.2s;">${t.cookieAccept}</button>
+                                <button style="background: #007bff; color: white; border: none; padding: 12px 35px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 17px; transition: opacity 0.2s;">${t.cookieClose}</button>
                             </div>
                         </div>
                     </div>
