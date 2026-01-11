@@ -44,8 +44,8 @@ export default function CloneHero() {
                 throw new Error(data.error || 'Erro ao clonar')
             }
 
-            const { projectId, pageId } = await res.json()
-            router.push(`/projects/${projectId}/editor/${pageId}`)
+            const { projectId } = await res.json()
+            router.push(`/projects/${projectId}`)
         } catch (err: any) {
             setError(err.message || 'Erro ao clonar página')
             setLoading(false)

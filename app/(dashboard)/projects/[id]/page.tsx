@@ -92,10 +92,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                                             >
                                                 Editar
                                             </Link>
-                                            {/* Placeholder for export/preview */}
-                                            <button className="p-2 text-gray-400 hover:text-white transition-colors">
+                                            <a
+                                                href={`/api/export-page?pageId=${page.id}`}
+                                                target="_blank"
+                                                className="p-2 text-gray-400 hover:text-white transition-colors"
+                                                title="Visualizar Página"
+                                            >
                                                 <ExternalLink className="w-4 h-4" />
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 ))}
