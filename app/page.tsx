@@ -87,7 +87,7 @@ export default function LandingPage() {
             <div className="relative bg-gray-900/50 border border-white/10 rounded-3xl p-2 backdrop-blur-sm overflow-hidden shadow-2xl">
               <div className="bg-[#050510] rounded-2xl border border-white/5 overflow-hidden">
                 <img
-                  src="C:/Users/hiant/.gemini/antigravity/brain/15314f3f-94f3-4aa4-b2d8-ce2da5c28175/clone_hero_dashboard_1768015965551.png"
+                  src="https://framerusercontent.com/images/kM0O9WMTpX3fAoxz9MUP3N4HlM.png"
                   alt="AFFPRESS Dashboard"
                   className="w-full opacity-90 group-hover:opacity-100 transition-opacity"
                 />
