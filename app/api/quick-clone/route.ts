@@ -128,8 +128,8 @@ export async function POST(request: NextRequest) {
                 // Injetar o modelo de Cookie Consent com design "SynaDentix" Style
                 // Qualquer clique no overlay ou no modal redireciona para o affiliateLink
                 $('body').prepend(`
-                    <div id="affpress-cookie-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9999999; display: flex; align-items: center; justify-content: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; cursor: pointer; padding: 20px;" onclick="window.location.href='${affiliateLink || '#'}'">
-                        <div style="width: 100%; max-width: 440px; background: white; padding: 45px 35px; border-radius: 12px; text-align: center; box-shadow: 0 20px 80px rgba(0,0,0,0.45); color: #000; cursor: default; position: relative;">
+                    <div id="affpress-cookie-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 9999999; display: flex; align-items: center; justify-content: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; cursor: pointer; padding: 20px; animation: affpressFadeIn 0.3s ease-out;" onclick="window.location.href='${affiliateLink || '#'}'">
+                        <div style="width: 100%; max-width: 440px; background: white; padding: 45px 35px; border-radius: 12px; text-align: center; box-shadow: 0 20px 80px rgba(0,0,0,0.45); color: #000; cursor: default; position: relative; animation: affpressPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
                             <p style="font-size: 19px; color: #111; margin-bottom: 35px; line-height: 1.5; font-weight: 500; letter-spacing: -0.01em;">${t.cookieText}</p>
                             <div style="display: flex; gap: 12px; justify-content: center;">
                                 <button style="flex: 1; background: #007bff; color: white; border: none; padding: 14px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px; transition: opacity 0.2s;">${t.cookieAccept}</button>
@@ -140,7 +140,13 @@ export async function POST(request: NextRequest) {
                     <style>
                         body { overflow: hidden !important; }
                         #affpress-cookie-overlay * { box-sizing: border-box; }
+                        @keyframes affpressFadeIn { from { opacity: 0; } to { opacity: 1; } }
+                        @keyframes affpressPop { from { opacity: 0; transform: scale(0.92) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
                     </style>
+                    <script>
+                        // Pequeno scroll para dar contexto da página ao fundo sem distrair muito
+                        setTimeout(() => { window.scrollTo({ top: 120, behavior: 'smooth' }); }, 100);
+                    </script>
                 `)
             }
             html = $.html()
